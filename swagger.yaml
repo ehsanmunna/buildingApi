@@ -1,0 +1,327 @@
+---
+swagger: '2.0'
+info:
+  title: Buildings
+  description: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+    when an unknown printer took a galley of type and scrambled it to make a type
+    specimen book.
+  version: 1.0.1
+produces:
+- application/json
+tags:
+- name: Buildings
+- name: Object
+- name: DataField
+- name: Reading
+  description: Setup Configuration for Buildings
+host: localhost:3000
+basePath: "/api"
+definitions:
+  Buildings:
+    required:
+    - Id
+    - Name
+    properties:
+      Id:
+        type: number
+      Name:
+        type: string
+      Location:
+        type: string
+      
+  Object:
+    required:
+      - Id
+      - Name
+    properties:
+      Id:
+        type: number
+      Name:
+        type: string
+      
+  DataField:
+    required:
+      - Id
+      - Name
+    properties:
+      Id:
+        type: number
+      Name:
+        type: string
+  Reading:
+    required:
+      - BuildingId
+      - ObjectId
+      - DataFieldId
+      - Value
+      - Timestamp
+    properties:
+      BuildingId:
+        type: number
+      ObjectId:
+        type: number
+      DataFieldId:
+        type: number
+      Value:
+        type: string
+      Timestamp:
+        type: string
+paths:
+  "/buildings":
+    post:
+      tags:
+      - Buildings
+      summary: Add a buildings
+      description: Save a new buildings
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: buildings object that needs to be added.
+        schema:
+          "$ref": "#/definitions/Buildings"
+      responses:
+        '200':
+          description: OK
+    put:
+      description: Update buildings with id
+      tags:
+      - Buildings
+      summary: Update a buildings
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: buildings object that needs to be update.
+        schema:
+          "$ref": "#/definitions/Buildings"
+      responses:
+        '200':
+          description: OK
+    get:
+      tags:
+      - Buildings
+      summary: Returns a list of buildings
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of Meter names
+  "/buildings/{id}":
+    get:
+      tags:
+      - Buildings
+      summary: Returns an Object of buildings
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - Buildings
+      summary: Delete buildings by id
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+  
+  "/object":
+    post:
+      tags:
+      - Object
+      summary: Add a Object
+      description: Save a new Object
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: Object object that needs to be added to the store
+        schema:
+          "$ref": "#/definitions/Object"
+      responses:
+        '200':
+          description: OK
+    put:
+      description: Update Object with id
+      tags:
+      - Object
+      summary: Update a Object
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: Object object that needs to be update to the store
+        schema:
+          "$ref": "#/definitions/Object"
+      responses:
+        '200':
+          description: OK
+    get:
+      tags:
+      - Object
+      summary: Returns a list of Objects
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of Meter names
+  "/object/{id}":
+    get:
+      tags:
+      - Object
+      summary: Returns an Object of Object
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - Object
+      summary: Delete Object by id
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+  "/datafield":
+    post:
+      tags:
+      - DataField
+      summary: Add a DataField
+      description: Save a new DataField
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: DataField object that needs to be added to the store
+        schema:
+          "$ref": "#/definitions/DataField"
+      responses:
+        '200':
+          description: OK
+    put:
+      description: Update DataField with id
+      tags:
+      - DataField
+      summary: Update a DataField
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: DataField object that needs to be update to the store
+        schema:
+          "$ref": "#/definitions/DataField"
+      responses:
+        '200':
+          description: OK
+    get:
+      tags:
+      - DataField
+      summary: Returns a list of DataFields
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of Meter names
+  "/datafield/{id}":
+    get:
+      tags:
+      - DataField
+      summary: Returns an Object of DataField
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - DataField
+      summary: Delete DataField by id
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+  "/reading":
+    post:
+      tags:
+      - Reading
+      summary: Add a Reading
+      description: Save a new Reading
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: Reading object that needs to be added to the store
+        schema:
+          "$ref": "#/definitions/Reading"
+      responses:
+        '200':
+          description: OK
+    put:
+      description: Update Reading with id
+      tags:
+      - Reading
+      summary: Update a Reading
+      parameters:
+      - in: body
+        name: body
+        required: true
+        description: Reading object that needs to be update to the store
+        schema:
+          "$ref": "#/definitions/Reading"
+      responses:
+        '200':
+          description: OK
+    get:
+      tags:
+      - Reading
+      summary: Returns a list of Readings
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of Meter names
+  "/reading/{id}":
+    get:
+      tags:
+      - Reading
+      summary: Returns an Object of Reading
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+      - Reading
+      summary: Delete Reading by id
+      parameters:
+      - in: path
+        name: id
+        type: string
+        required: true
+      responses:
+        '200':
+          description: OK
